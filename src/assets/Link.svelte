@@ -1,7 +1,3 @@
-<div class="title">
-	<h1>HatPatcher</h1>
-</div>
-
 <div id="github">
 	<button id="github-button" on:click={() => window.open("https://github.com/TastyFrenchBun/hatpatcher")}>
 		<img id="github-logo" src="/images/github-light.png" alt="Github Logo" />
@@ -10,19 +6,14 @@
 </div>
 
 <style>
-	.title {
-		color: white;
-		margin: auto;
-		width: fit-content;
-		font-size: 14px;
-	}
-
 	#github {
 		position: fixed;
 		width: fit-content;
-		bottom: 0px;
-		left: 40%;
+		bottom: 10px;
 		background-color: rgb(0, 0, 0, 0);
+		left: 0;
+		right: 0;
+		margin: auto;
 	}
 
 	#github-button, #github-logo {

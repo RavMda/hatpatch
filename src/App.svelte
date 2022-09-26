@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Topbar from "./assets/Topbar.svelte";
-	import Title from "./assets/Title.svelte";
+	import Main from "./assets/Main/Main.svelte";
+	import Link from "./assets/Link.svelte";
 </script>
 
 <svelte:head>
@@ -9,11 +10,8 @@
 
 <main>
 	<Topbar />
-	<Title />
-	<!--<label for="version">Version</label>
-	<select name="version" id="version">
-		<option value="1.19.2">1.19.2</option>
-	</select>-->
+	<Main />
+	<Link />
 </main>
 
 <style>
@@ -22,6 +20,10 @@
 		--dark: rgb(44, 47, 51);
 		--light: rgb(153, 170, 181);
 		--anim-speed: 150ms;
+	}
+
+	:global(html){
+		user-select: none;
 	}
 
 	main {

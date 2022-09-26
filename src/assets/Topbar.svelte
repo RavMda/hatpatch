@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { appWindow } from '@tauri-apps/api/window'
 	appWindow.setResizable(false)
+	appWindow.setFocus()
 </script>
 
 <div data-tauri-drag-region class="topbar">
