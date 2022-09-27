@@ -30,6 +30,7 @@
 
 	.button {
 		transition: var(--anim-speed);
+		width: 100px;
 	}
 
 	#discord {

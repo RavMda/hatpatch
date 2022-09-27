@@ -53,6 +53,7 @@
 
 	function patch() {
 		invoke("patch_game", {gamePath: $gamePath})
+		readyToPatch.set(false)
 	}
 </script>
 

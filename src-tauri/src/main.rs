@@ -41,7 +41,16 @@ use reqwest;
 use tauri::Manager;
 use std::io::Cursor;
 use std::path::Path;
+use std::process::Command;
 use zip_extract;
+use std::env;
+
+fn is_program_in_path(program: &str) -> bool {
+   match Command::new(program).spawn() {
+	  Ok(_) => true,
+	  Err(_) => false,
+   }
+}
 
 async fn download_fabric(app_handle: &tauri::AppHandle) -> bool {
 	Output::send_info(app_handle, "Downloading fabric...");
@@ -101,7 +110,7 @@ async fn download_fabric(app_handle: &tauri::AppHandle) -> bool {
 async fn install_fabric(app_handle: &tauri::AppHandle, game_path: String) -> bool {
 	let temp = std::env::temp_dir();
 
-	let fabric_path = temp.join("fabric.jar");
+	let fabric_path = temp.join("hatcat/fabric.jar");
 	let fabric_path = match fabric_path.to_str() {
 		Some(path) => path,
 		None => {
@@ -112,11 +121,23 @@ async fn install_fabric(app_handle: &tauri::AppHandle, game_path: String) -> boo
 
 	let game_path = game_path.as_str();
 
+	let javaw_exists = is_program_in_path("javaw");
+	let java_exists = is_program_in_path("java");
+
+	let java_path = if javaw_exists {
+		"javaw"
+	} else if java_exists {
+		"java"
+	} else {
+		Output::send_error(app_handle, "Couldn't find java!");
+		return false
+	};
+
 	let args = ["-jar", fabric_path, "client", "-dir", game_path];
 
 	Output::send_info(app_handle, "Installing fabric...");
 
-	let cmd = std::process::Command::new("java").args(args).output();
+	let cmd = std::process::Command::new(java_path).args(args).output();
 	match cmd {
 		Ok(out) => {
 			let status = out.status;
@@ -145,7 +166,6 @@ async fn install_fabric(app_handle: &tauri::AppHandle, game_path: String) -> boo
 }
 
 async fn install_mods(app_handle: &tauri::AppHandle, game_path: String) {
-	// download mods.zip from hatcat.org/patcher/mods.zip
 	Output::send_info(app_handle, "Downloading mods...");
 
 	let response_result = reqwest::get("https://hatcat.org/patcher/mods.zip").await;

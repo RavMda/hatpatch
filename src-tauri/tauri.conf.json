@@ -17,6 +17,7 @@
         "scope": ["**"]
       }
     },
+	"macOSPrivateApi": true,
     "bundle": {
       "active": true,
       "category": "DeveloperTool",

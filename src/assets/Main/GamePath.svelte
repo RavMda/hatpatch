@@ -15,9 +15,10 @@
 	 * Everything related to path
 	 */
 
-	import { dataDir } from "@tauri-apps/api/path";
+	import { dataDir, configDir } from "@tauri-apps/api/path";
 	import { open } from "@tauri-apps/api/dialog";
 	import { exists } from "@tauri-apps/api/fs";
+	import { type } from "@tauri-apps/api/os"
 
 	function minimizePath(path: string) {
 		let length = path.length;
@@ -51,9 +52,18 @@
 		gamePath.set(realPath)
 	}
 	
-	dataDir().then((dir) => {	
-		realPath = dir + "\.minecraft"
+	type().then((osType) => {
+		if (osType === "Darwin") {
+			configDir().then((dir) => {
+				realPath = dir + "minecraft"
+			})
+		} else {
+			dataDir().then((dir) => {	
+				realPath = dir + "\.minecraft"
+			})
+		}
 	})
+
 
 	async function select() {
 		let selected = await open({

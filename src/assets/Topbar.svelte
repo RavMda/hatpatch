@@ -6,7 +6,7 @@
 
 <div data-tauri-drag-region class="topbar">
 	<button class="hide" on:click={() => appWindow.minimize()}>–</button>
-	<button class="close" on:click={() => window.close()}>x</button>
+	<button class="close" on:click={() => appWindow.close()}>x</button>
 </div>
 
 <style>
