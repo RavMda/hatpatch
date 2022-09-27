@@ -1,12 +1,24 @@
-<div id="github">
-	<button id="github-button" on:click={() => window.open("https://github.com/TastyFrenchBun/hatpatcher")}>
-		<img id="github-logo" src="/images/github-light.png" alt="Github Logo" />
-		GitHub
+<script lang="ts">
+	/*
+	 * Font Awesome Icons
+	 */
+	import Fa from "svelte-fa";
+	import { faDiscord, faTelegram } from "@fortawesome/free-brands-svg-icons"
+</script>
+
+<div id="container">
+	<button id="discord" class="button" on:click={() => window.open("https://discord.gg/PnQcXP2JjW")}>
+		<Fa icon={faDiscord} />
+		Discord
+	</button>
+	<button id="telegram" class="button" on:click={() => window.open("https://t.me/hatcatmc")}>
+		<Fa icon={faTelegram} />
+		Telegram
 	</button>
 </div>
 
 <style>
-	#github {
+	#container {
 		position: fixed;
 		width: fit-content;
 		bottom: 10px;
@@ -16,26 +28,21 @@
 		margin: auto;
 	}
 
-	#github-button, #github-logo {
+	.button {
 		transition: var(--anim-speed);
 	}
 
-	#github-button:hover {
+	#discord {
+		margin-right: 10px;
+	}
+
+	.button:hover {
 		color: black;
 	}
-
-	#github-button:hover #github-logo {
-		filter: invert(1);
-	}
-
-	#github-button {
+	.button {
 		background-color: rgb(0, 0, 0, 0);
 		border: 0;
 		color: white;
 		padding: 0;
-	}
-
-	#github-logo {
-		width: 14px;
 	}
 </style>
