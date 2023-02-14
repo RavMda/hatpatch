@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Topbar from "./assets/Topbar.svelte";
-	import Main from "./assets/Main/Main.svelte";
-	import Link from "./assets/Link.svelte";
+	import Topbar from "./components/Topbar.svelte";
+	import Main from "./components/Main/Main.svelte";
+	import Link from "./components/Link.svelte";
 </script>
 
 <svelte:head>
