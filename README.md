@@ -21,7 +21,7 @@ To get started with HatPatch, follow these steps:
   - System specific requirements
 2. Clone this repository to your local machine
   ```bash
-  git clone https://github.com/TastyFrenchBun/hatpatch.git
+  git clone https://github.com/RavMda/hatpatch.git
   ```
 3. Build the project using the following command
   ```bash

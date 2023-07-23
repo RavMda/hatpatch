@@ -2,9 +2,9 @@
 name = "app"
 version = "1.0.0"
 description = "Minecraft Patcher"
-authors = ["TastyFrenchBun <me@hatcat.org>"]
+authors = ["RavMda <me@hatcat.org>"]
 license = "GPL-3.0"
-repository = "https://github.com/TastyFrenchBun/patcher"
+repository = "https://github.com/RavMda/patcher"
 default-run = "app"
 edition = "2021"
 rust-version = "1.57"
