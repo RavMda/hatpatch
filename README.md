@@ -30,9 +30,5 @@ To get started with HatPatch, follow these steps:
 And that's it! You should now have a working version of HatPatch on your local machine. 
 If you run into any issues, feel free to **open an issue** and we'll do our best to help you out.
 
-## Support
-
-If you run into any issues, please <ins>**open an issue**</ins> in the repository. We'll be happy to help you out!
-
 ## License
 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
