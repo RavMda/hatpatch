@@ -1,6 +1,6 @@
 # HatPatch
 
-A seamless and easy-to-use Minecraft Fabric modpack installer, built with **Tauri**, **Svelte**, **TypeScript**, and **Rust**.
+An easy-to-use Minecraft Fabric modpack installer, built with **Tauri**, **Svelte**, **TypeScript**, and **Rust**.
 
 ## ⚡ Features
 
